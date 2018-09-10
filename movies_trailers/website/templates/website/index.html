@@ -1,0 +1,13 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+Search the trailers of a movie
+<form role="form" method="get" action="">
+  <div>
+	  {{ form.search_word }}
+	  <input type="submit" value="Search">
+  </div>
+</form>
+{% endblock content %}
