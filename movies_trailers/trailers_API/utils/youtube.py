@@ -15,14 +15,12 @@ def get_trailers(key_words):
     )
 
     search_response = youtube.search().list(
-      q='{} - {}'.format(key_words, SEARCH_CATEGORY),
-      part="id,snippet",
-      maxResults=3
+        q='{} - {}'.format(key_words, SEARCH_CATEGORY),
+        part='id',
+        maxResults=3,
+        type='video'
     ).execute()
 
-    videos = [
-        search_result for search_result in search_response.get("items", [])
-        if search_result["id"]["kind"] == "youtube#video"
-    ]
+    videos = search_response.get("items", [])
 
     return videos
