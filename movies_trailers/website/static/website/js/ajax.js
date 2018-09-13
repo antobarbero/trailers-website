@@ -2,13 +2,14 @@ $(document).ready(function(){
   $("#search-trailers").submit(function(e){
     e.preventDefault();
     var q = $("#id_key_words").val();
-    document.getElementById('result-container').innerHTML = '';
+    document.getElementById('result-container').innerHTML = '<center>Loading ...</center>';
     $.ajax({
       dataType: 'json',
       url: $(this).attr('action') + '?q=' + q,
       type: $(this).attr('method'),
       data: {},
       success: function(json){
+        document.getElementById('result-container').innerHTML = '';
         json.forEach((movie) => {
             document.getElementById('result-container').innerHTML += renderItem(movie.Title, movie.trailers);
         });
