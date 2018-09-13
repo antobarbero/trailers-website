@@ -4,9 +4,9 @@
 
 {% block content %}
 Search the trailers of a movie
-<form role="form" method="get" action="">
+<form role="form" method="get" action="{% url 'trailers_api:movies_trailers' %}" id="search-trailers">
   <div>
-	  {{ form.search_word }}
+	  {{ form.key_words }}
 	  <input type="submit" value="Search">
   </div>
 </form>
