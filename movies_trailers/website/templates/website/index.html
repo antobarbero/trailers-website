@@ -4,8 +4,7 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<header class="masthead text-white text-center" style="background-color:#086A87">
-  <div class="overlay"></div>
+<header class="masthead text-white text-center">
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
@@ -13,6 +12,7 @@
       </div>
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <form role="form" method="get" action="{% url 'trailers_api:movies_trailers' %}" id="search-trailers">
+          {% csrf_token %}
           <div class="form-row">
             <div class="col-12 col-md-9 mb-2 mb-md-0">
               {{ form.key_words|attr:"placeholder:Enter movie title..."|add_class:"form-control form-control-lg" }}
