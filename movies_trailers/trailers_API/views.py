@@ -10,14 +10,20 @@ class MoviesTrailersAPIView(APIView):
     renderer_classes = JSONRenderer,
 
     def get(self, request):
-
         key_words = request.query_params.get('q')
+        result = self._merge_responses(key_words)
+
+        return Response(result)
+
+    def _merge_responses(self, key_words):
+        """
+        Merge the apis data and returns a dict with the data of movies
+        and its trailers.
+        """
         movies = omdb.get_movies(key_words)
 
         for movie in movies:
-            trailers = youtube.get_trailers(movie.get('Title'))
-            movie.update({'yt_trailers_ids': [
-                trailer['id']['videoId'] for trailer in trailers
-            ]})
+            trailers_ids = youtube.get_trailers(movie.get('Title'))
+            movie.update({'trailers': trailers_ids})
 
-        return Response(movies)
+        return movies
