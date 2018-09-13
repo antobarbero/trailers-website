@@ -21,6 +21,9 @@ def get_trailers(key_words):
         type='video'
     ).execute()
 
-    videos = search_response.get("items", [])
+    trailers = [
+        trailer['id']['videoId']
+        for trailer in search_response.get("items", [])
+    ]
 
-    return videos
+    return trailers
