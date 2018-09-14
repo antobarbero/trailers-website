@@ -17,14 +17,14 @@ class MoviesTrailersAPIView(APIView):
 
     def get(self, request):
         key_words = request.query_params.get('q')
-        result = self._merge_responses(key_words)
+        result = self._aggregate_responses(key_words)
 
         return Response(result)
 
-    def _merge_responses(self, key_words):
+    def _aggregate_responses(self, key_words):
         """
-        Merge the apis data and returns a dict with the data of movies
-        and its trailers.
+        Merge the APIs responses data and returns a dict with the data of
+        movies and its trailers.
         """
         movies = omdb.get_movies(key_words)
 
