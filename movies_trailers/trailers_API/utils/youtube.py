@@ -1,6 +1,6 @@
 from googleapiclient.discovery import build
 
-DEVELOPER_KEY = "AIzaSyBiMecYhUa-NRswgRCmgj-svlsAidGaYLA"
+DEVELOPER_KEY = "AIzaSyBnnwHYQ7H1VsMjJUEJBZusV8hSbCN7tdQ"
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 SEARCH_CATEGORY = 'trailer'
