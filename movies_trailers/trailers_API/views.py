@@ -1,3 +1,5 @@
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -8,6 +10,10 @@ from .utils import omdb, youtube
 class MoviesTrailersAPIView(APIView):
     """API View to retrieve the movies and its trailers."""
     renderer_classes = JSONRenderer,
+
+    @method_decorator(cache_page(1800))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get(self, request):
         key_words = request.query_params.get('q')
