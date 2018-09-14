@@ -26,7 +26,7 @@ $ sh setup_project.sh
 #### Or manually follow these steps: ####
 
 
-1. install python and python venv
+1 . install python and python venv
 
 ```
 $ sudo apt-get update
@@ -37,7 +37,7 @@ $ sudo apt-get install python3-venv -y
 
 ```
 
-2.  create a virtual environment and activate it.
+2 . create a virtual environment and activate it.
 
 ```
 $ python3 -m venv .env
@@ -46,13 +46,13 @@ $ . .env/bin/activate
 ```
 
 
-3. install the project requirements (with the virtual environment activated)
+3 . install the project requirements (with the virtual environment activated)
 
 ```
 $ pip install -r requirements.txt
 ```
 
-4. Run the database migrations
+4 . Run the database migrations
 
 ```
 $ ./movies_trailers/manage.py migrate
