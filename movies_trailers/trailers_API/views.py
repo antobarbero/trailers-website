@@ -19,7 +19,7 @@ class MoviesTrailersAPIView(APIView):
         key_words = request.query_params.get('q')
         result = self._aggregate_responses(key_words)
 
-        return Response(result)
+        return Response(result if result else {"Error": "Movie not found!"})
 
     def _aggregate_responses(self, key_words):
         """
