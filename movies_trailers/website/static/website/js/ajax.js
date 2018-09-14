@@ -2,17 +2,22 @@ $(document).ready(function(){
   $("#search-trailers").submit(function(e){
     e.preventDefault();
     var q = $("#id_key_words").val();
-    document.getElementById('result-container').innerHTML = '<center>Loading ...</center>';
+    document.getElementById('result-container').innerHTML = '<p align="center" class="showcase-text lead mb-0">Loading ...</p>';
     $.ajax({
       dataType: 'json',
       url: $(this).attr('action') + '?q=' + q,
       type: $(this).attr('method'),
       data: {},
       success: function(json){
-        document.getElementById('result-container').innerHTML = '';
-        json.forEach((movie) => {
+        if (json.length) {
+          document.getElementById('result-container').innerHTML = '';
+          json.forEach((movie) => {
             document.getElementById('result-container').innerHTML += renderItem(movie.Title, movie.Year, movie.trailers);
-        });
+          });
+        }
+        else {
+          document.getElementById('result-container').innerHTML = '<p align="center" class="showcase-text lead mb-0">No movies found!</p>';
+        }
       }
     });
   })
