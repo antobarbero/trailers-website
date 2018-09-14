@@ -95,10 +95,16 @@ ________________________________________________________________________
 
 ##### Website #####
 
+
 ![Alt text](docs/img/screenshot_search.png "search")
+
+
 ![Alt text](docs/img/screenshot_result.png?raw=true "result")
+
+
 ![Alt text](docs/img/screenshot_result_2.png?raw=true "result 2")
 
 ##### API #####
+
 
 ![Alt text](docs/img/screenshot_api.png?raw=true "API")
