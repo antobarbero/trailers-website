@@ -76,7 +76,7 @@ ________________________________________________________________________
 
 ### How to run tests ###
 ```
-$ ./movies_trailers/manage.py test movies_trailers
+$ ./movies_trailers/manage.py test trailers_API
 ```
 
 ________________________________________________________________________
