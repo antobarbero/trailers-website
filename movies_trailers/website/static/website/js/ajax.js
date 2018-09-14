@@ -11,15 +11,15 @@ $(document).ready(function(){
       success: function(json){
         document.getElementById('result-container').innerHTML = '';
         json.forEach((movie) => {
-            document.getElementById('result-container').innerHTML += renderItem(movie.Title, movie.trailers);
+            document.getElementById('result-container').innerHTML += renderItem(movie.Title, movie.Year, movie.trailers);
         });
       }
     });
   })
 });
 
-function renderItem(title, trailers) {
-  var html = '<div class="row no-gutters"><div class="col-lg-12 showcase-text"><h2>' + title + '</h2></div>';
+function renderItem(title, year, trailers) {
+  var html = '<div class="row no-gutters"><div class="col-lg-12 showcase-text"><h2>' + title + ' (' + year + ')' + '</h2></div>';
 
   trailers.forEach ((trailer) => {
     html += '<div class="col-lg-12 text-white showcase-img" align="center"><iframe width="600" height="400" src="https://www.youtube.com/embed/' + trailer + '"></iframe></div>';
