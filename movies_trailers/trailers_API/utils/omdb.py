@@ -7,7 +7,7 @@ API_KEY = '28e7ad89'
 
 
 def get_movies(key_words):
-    """Returns a list of movies that matches with the search word."""
+    """Returns a list of movies that matches with the search words."""
     params = {
         'apikey': API_KEY,
         's': key_words
@@ -15,10 +15,10 @@ def get_movies(key_words):
 
     response = requests.get(BASE_URL, params=params)
 
+    result = {}
+
     if response.ok:
         dict_response = json.loads(response.text)
-        movies_result = dict_response.get('Search')
-    else:
-        return {}
+        result = dict_response.get('Search', {})
 
-    return movies_result
+    return result
