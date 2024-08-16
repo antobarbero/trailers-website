@@ -3,7 +3,7 @@ import json
 import requests
 
 BASE_URL = 'http://www.omdbapi.com/'
-API_KEY = '28e7ad89'
+API_KEY = ''
 
 
 def get_movies(key_words):
